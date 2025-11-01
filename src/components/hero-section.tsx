@@ -1,10 +1,10 @@
 "use client";
 
-import { useLanguage } from "@/context/language-context"; // Le hook de traduction
+import { useLanguage } from "@/context/language-context";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, GraduationCap, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
-// La fonction pour scroller en douceur
 const scrollTo = (id: string) => {
   const element = document.getElementById(id);
   if (element) {
@@ -12,9 +12,6 @@ const scrollTo = (id: string) => {
   }
 };
 
-// --- MODIFICATION 1 ---
-// On met les "clés de traduction" ici (de simples strings)
-// au lieu d'essayer d'appeler t()
 const infoSnippets = [
   {
     icon: <GraduationCap size={16} />,
@@ -31,31 +28,41 @@ const infoSnippets = [
 ];
 
 export function HeroSection() {
-  // On récupère la fonction 't' de notre contexte
   const { t } = useLanguage(); 
 
   return (
-    // Les classes d'origine pour le conteneur principal
     <div className="w-full max-w-5xl min-h-[80vh] flex flex-col justify-center text-left py-16 md:py-0">
       
-      {/* Nom */}
-      <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">
-        {t("hero.title")} {/* Traduit */}
-      </h1>
+      <motion.h1 
+        className="text-5xl md:text-7xl font-bold tracking-tighter mb-4"
+        initial={{ opacity: 0, y: 20 }} // État initial (caché, décalé)
+        animate={{ opacity: 1, y: 0 }} // État final (visible, à sa place)
+        transition={{ duration: 0.5, ease: "easeOut" }} // Transition (sans délai)
+      >
+        {t("hero.title")}
+      </motion.h1>
 
-      {/* Description */}
-      <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8">
-        {t("hero.description")} {/* Traduit */}
-      </p>
+      <motion.p 
+        className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }} // Délai de 0.1s
+      >
+        {t("hero.description")}
+      </motion.p>
 
-      {/* Boutons CTA */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+      <motion.div 
+        className="flex flex-col sm:flex-row gap-4 mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }} // Délai de 0.2s
+      >
         <Button 
           size="lg" 
           className="text-lg px-8 py-6"
           onClick={() => scrollTo("projects")}
         >
-          {t("hero.projectsButton")} {/* Traduit */}
+          {t("hero.projectsButton")}
         </Button>
         
         <Button 
@@ -64,17 +71,17 @@ export function HeroSection() {
           className="text-lg px-8 py-6"
           onClick={() => window.open("/path-to-your-cv.pdf", "_blank")}
         >
-          {t("header.cvButton")} {/* Traduit (réutilise la clé du header) */}
+          {t("header.cvButton")}
         </Button>
-      </div>
+      </motion.div>
       
-      {/* Petites infos (comme avant) */}
-      <div className="flex flex-wrap gap-x-6 gap-y-2">
+      <motion.div 
+        className="flex flex-wrap gap-x-6 gap-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }} // Délai de 0.3s
+      >
         
-        {/* --- MODIFICATION 2 ---
-            1. On utilise 'item.translationKey' pour la 'key' React (c'est plus stable).
-            2. On appelle 't(item.translationKey)' ICI pour afficher le texte traduit.
-        */}
         {infoSnippets.map((item) => (
           <div 
             key={item.translationKey} 
@@ -90,10 +97,9 @@ export function HeroSection() {
           className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
         >
           <Mail size={16} />
-          {/* Tu peux aussi traduire ton email si tu veux, ou le laisser tel quel */}
           <span>colsonnathan03@gmail.com</span>
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }

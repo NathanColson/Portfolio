@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useLanguage } from "@/context/language-context"; // Le hook de traduction
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-// 1. IMPORTER LES COMPOSANTS MANQUANTS
 import { 
   Sheet, 
   SheetContent, 
