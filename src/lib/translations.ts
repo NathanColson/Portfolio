@@ -21,20 +21,44 @@ export const translations = {
       imagePlaceholder: "Project Image Placeholder",
       seeMoreButton: "See more",
       project1: {
-        title: "Project Alpha",
-        description: "A short description of Project Alpha, what it does, and the technologies used.",
+        title: "Dbox-FM",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
       },
       project2: {
-        title: "Project Beta",
-        description: "A short description of Project Beta. This one was a group effort.",
+        title: "TFE",
+        description: "Une courte description du Projet Beta. Celui-ci était un effort de groupe.",
       },
       project3: {
-        title: "Project Gamma",
-        description: "A short description of Project Gamma, focusing on the backend API.",
+        title: "Agent IA",
+        description: "Une courte description du Projet Gamma, centrée sur l'API backend.",
       },
       project4: {
-        title: "Project Delta",
-        description: "A short description of Project Delta. Fully responsive design.",
+        title: "The Beauty Corner",
+        description: "Une courte description du Projet Delta. Design entièrement responsive.",
+      },
+      project5: {
+        title: "LARES",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project6: {
+        title: "Gestionnaire de fichiers CSV",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project7: {
+        title: "Admin VPS",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project8: {
+        title: "Portfolio",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project9: {
+        title: "F1-Project",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project10: {
+        title: "Noctren",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
       },
     },
     // --- NOUVEAUX TEXTES POUR LA SECTION JOURNEY ---
@@ -116,20 +140,44 @@ export const translations = {
       imagePlaceholder: "Placeholder d'image de projet",
       seeMoreButton: "Voir plus",
       project1: {
-        title: "Projet Alpha",
+        title: "Dbox-FM",
         description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
       },
       project2: {
-        title: "Projet Beta",
+        title: "TFE",
         description: "Une courte description du Projet Beta. Celui-ci était un effort de groupe.",
       },
       project3: {
-        title: "Projet Gamma",
+        title: "Agent IA",
         description: "Une courte description du Projet Gamma, centrée sur l'API backend.",
       },
       project4: {
-        title: "Projet Delta",
+        title: "The Beauty Corner",
         description: "Une courte description du Projet Delta. Design entièrement responsive.",
+      },
+      project5: {
+        title: "LARES",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project6: {
+        title: "Gestionnaire de fichiers CSV",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project7: {
+        title: "Admin VPS",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project8: {
+        title: "Portfolio",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project9: {
+        title: "F1-Project",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+      },
+      project10: {
+        title: "Noctren",
+        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
       },
     },
     // --- NOUVEAUX TEXTES POUR LA SECTION JOURNEY ---

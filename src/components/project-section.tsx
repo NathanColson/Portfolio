@@ -4,6 +4,8 @@ import * as React from "react";
 // 1. Importer motion et les hooks
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
+// 2. IMPORTER LE COMPOSANT IMAGE
+import Image from "next/image";
 
 // --- (Le reste de tes imports) ---
 import {
@@ -24,60 +26,104 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/language-context";
 
-// ... (ton tableau 'projects' reste le même)
+// 3. METTRE À JOUR LE TYPE "Project"
+type Project = {
+  id: number;
+  titleKey: string;
+  descriptionKey: string;
+  imageUrl: string; // <-- La nouvelle propriété pour l'image
+};
+
+// 4. METTRE À JOUR LE TABLEAU "projects"
+// J'ai deviné les noms d'images, tu devras les ajuster
 const projects: Project[] = [
   {
     id: 1,
     titleKey: "projects.project1.title",
     descriptionKey: "projects.project1.description",
+    imageUrl: "/images/Dbox-FM.png", // <-- NOUVEAU
   },
   {
     id: 2,
     titleKey: "projects.project2.title",
     descriptionKey: "projects.project2.description",
+    imageUrl: "/images/TFE-Portfolio.svg", // <-- NOUVEAU
   },
   {
     id: 3,
     titleKey: "projects.project3.title",
     descriptionKey: "projects.project3.description",
+    imageUrl: "/images/AI-Agent-Portfolio.png", // <-- NOUVEAU
   },
   {
     id: 4,
     titleKey: "projects.project4.title",
     descriptionKey: "projects.project4.description",
+    imageUrl: "/images/thebeauty-Portfolio.png", // <-- NOUVEAU
+  },
+  {
+    id: 5,
+    titleKey: "projects.project5.title",
+    descriptionKey: "projects.project5.description",
+    imageUrl: "/images/LARES-Portfolio.svg", // <-- NOUVEAU
+  },
+  {
+    id: 6,
+    titleKey: "projects.project6.title",
+    descriptionKey: "projects.project6.description",
+    imageUrl: "/images/manager-csv-Portfolio.svg", // <-- NOUVEAU
+  },
+  {
+    id: 7,
+    titleKey: "projects.project7.title",
+    descriptionKey: "projects.project7.description",
+    imageUrl: "/images/VPS-Admin-Portfolio.svg", // <-- NOUVEAU
+  },
+  {
+    id: 8,
+    titleKey: "projects.project8.title",
+    descriptionKey: "projects.project8.description",
+    imageUrl: "/images/portfolio-Portfolio.svg", // <-- NOUVEAU
+  },
+  {
+    id: 9,
+    titleKey: "projects.project9.title",
+    descriptionKey: "projects.project9.description",
+    imageUrl: "/images/F1-Project-Portfolio.png", // <-- NOUVEAU
+  },
+  {
+    id: 10,
+    titleKey: "projects.project10.title",
+    descriptionKey: "projects.project10.description",
+    imageUrl: "/images/Noctren-image-portfolio.svg", // <-- NOUVEAU
   },
 ];
+
 
 export function ProjectsSection() {
   const { t } = useLanguage();
 
-  // 2. Préparer la détection de scroll
+  // ... (Toute la logique d'animation reste la même)
   const ref = useRef(null);
-  // 'once: true' = l'animation ne se joue qu'une fois
-  // 'amount: 0.2' = se déclenche quand 20% de la section est visible
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const controls = useAnimation();
 
-  // 3. Déclencher l'animation quand c'est visible
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
     }
   }, [isInView, controls]);
 
-  // 4. Définir les "variantes" d'animation
-  // On va animer le conteneur, puis ses enfants en décalé
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Délai de 0.2s entre chaque enfant
+        staggerChildren: 0.2,
       },
     },
   };
 
-  // L'animation pour chaque "enfant" (le titre et le carrousel)
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -86,28 +132,28 @@ export function ProjectsSection() {
       transition: { duration: 0.5, ease: "easeOut" }
     },
   };
+  // ... (Fin de la logique d'animation)
+
 
   return (
-    // 5. Appliquer l'animation au conteneur principal
     <motion.div 
-      ref={ref} // Attache la référence pour la détection
+      ref={ref}
       className="w-full"
-      variants={containerVariants} // Applique les variantes du conteneur
-      initial="hidden" // Commence caché
-      animate={controls} // L'animation est gérée par 'controls'
+      variants={containerVariants}
+      initial="hidden"
+      animate={controls}
     >
       {/* Titre de la section (1er enfant) */}
       <motion.h2 
         className="text-3xl font-bold text-center mb-12"
-        variants={itemVariants} // Applique l'animation "item"
+        variants={itemVariants}
       >
         {t("projects.sectionTitle")}
       </motion.h2>
 
       {/* Le Carrousel (2ème enfant) */}
-      {/* On enveloppe le carrousel dans une motion.div */}
       <motion.div 
-        variants={itemVariants} // Applique l'animation "item"
+        variants={itemVariants}
       >
         <Carousel
           opts={{
@@ -118,21 +164,27 @@ export function ProjectsSection() {
         >
           <CarouselContent>
             {projects.map((project) => (
-              // Chaque item du carrousel
               <CarouselItem 
                 key={project.id} 
                 className="md:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-1">
-                  {/* Une Card pour chaque projet */}
-                  <Card className="h-full flex flex-col">
+                  {/* J'ajoute "group" pour un effet de zoom sur l'image au survol */}
+                  <Card className="h-full flex flex-col group">
                     <CardHeader>
-                      {/* Placeholder pour une image de projet */}
-                      <div className="w-full h-40 bg-muted rounded-md mb-4 flex items-center justify-center">
-                        <span className="text-muted-foreground text-sm">
-                          {t("projects.imagePlaceholder")}
-                        </span>
+                      
+                      {/* 5. REMPLACER LE PLACEHOLDER PAR L'IMAGE */}
+                      {/* J'ajoute "relative overflow-hidden" pour le composant Image */}
+                      <div className="w-full h-40 bg-muted rounded-md mb-4 relative overflow-hidden">
+                        <Image
+                          src={project.imageUrl} // <-- ON UTILISE L'URL DU PROJET
+                          alt={t(project.titleKey)}
+                          fill // "fill" remplit le conteneur
+                          style={{ objectFit: "contain" }} // "cover" garde l'aspect ratio
+                          className="transition-transform duration-300 ease-in-out group-hover:scale-105" // Effet de zoom
+                        />
                       </div>
+                      
                       <CardTitle>{t(project.titleKey)}</CardTitle>
                       <CardDescription className="h-24">
                         {t(project.descriptionKey)}
