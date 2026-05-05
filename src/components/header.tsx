@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useLanguage } from "@/context/language-context"; // Le hook de traduction
+import { useLanguage } from "@/context/language-context"; 
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { 
@@ -12,21 +12,18 @@ import {
   SheetHeader, 
   SheetTitle, 
   SheetDescription 
-} from "@/components/ui/sheet"; // Pour le menu mobile
+} from "@/components/ui/sheet"; 
 
-import { Menu } from "lucide-react"; // L'icône du menu mobile
+import { Menu } from "lucide-react"; 
 
 export function Header() {
-  // Gère l'état d'ouverture du menu mobile
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // Récupère les fonctions de traduction
   const { locale, setLocale, t } = useLanguage();
 
   const toggleLanguage = () => {
     setLocale(locale === "en" ? "fr" : "en");
   };
 
-  // Une fonction pour fermer le menu mobile quand on clique sur un lien
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
   };
@@ -35,7 +32,6 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-[2000px] items-center justify-between px-4 md:px-6">
         
-        {/* === Logo / Nom === */}
         <Link href="/" className="font-bold text-lg">
           NathanColson
         </Link>
@@ -60,6 +56,15 @@ export function Header() {
           >
             {t("header.navContact")}
           </Link>
+
+          {/* AJOUT : Lien vers la page Activités */}
+          <Link
+            href="/activites"
+            className="text-muted-foreground transition-colors hover:text-primary font-semibold"
+          >
+            {t("header.navActivities") || "Activités"}
+          </Link>
+
           <Button 
             variant="outline" 
             size="sm"
@@ -68,14 +73,13 @@ export function Header() {
             {t("header.cvButton")}
           </Button>
 
-          {/* Le bouton pour changer de langue */}
           <Button variant="ghost" size="sm" onClick={toggleLanguage}>
             {locale === "en" ? "FR" : "EN"}
           </Button>
           <ThemeToggle />
         </nav>
         
-        {/* === Menu Mobile (corrigé et complet) === */}
+        {/* === Menu Mobile === */}
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -86,20 +90,17 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               
-              {/* 2. AJOUTER LE TITRE CACHÉ ICI */}
               <SheetHeader>
                 <SheetTitle className="sr-only">Menu</SheetTitle>
                 <SheetDescription className="sr-only">
-                  {/* On peut même utiliser la traduction ici */}
                   {t("header.mobileNavDescription") || "Main site navigation"}
                 </SheetDescription>
               </SheetHeader>
-              {/* FIN DE L'AJOUT */}
 
               <nav className="flex flex-col space-y-4 mt-8">
                 <Link
                   href="#projects"
-                  onClick={handleLinkClick} // Ferme le menu au clic
+                  onClick={handleLinkClick} 
                   className="text-lg font-medium"
                 >
                   {t("header.navProjects")}
@@ -118,6 +119,16 @@ export function Header() {
                 >
                   {t("header.navContact")}
                 </Link>
+
+                {/* AJOUT : Lien vers la page Activités (Mobile) */}
+                <Link
+                  href="/activites"
+                  onClick={handleLinkClick}
+                  className="text-lg font-medium text-primary"
+                >
+                  {t("header.navActivities") || "Activités Académiques"}
+                </Link>
+
                 <Button 
                   variant="outline" 
                   className="mt-4"
@@ -128,7 +139,6 @@ export function Header() {
                 >
                   {t("header.cvButton")}
                 </Button>
-                {/* Bouton de langue pour mobile */}
                 <Button
                   variant="ghost"
                   className="mt-4"
@@ -148,4 +158,3 @@ export function Header() {
     </header>
   );
 }
-

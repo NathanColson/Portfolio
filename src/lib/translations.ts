@@ -5,13 +5,16 @@ export const translations = {
       navProjects: "Projects",
       navSkills: "Skills",
       navContact: "Contact",
+      // AJOUT DES CLÉS MANQUANTES
+      navActivities: "Activities",
+      mobileNavDescription: "Main site navigation",
       cvButton: "My CV",
     },
     // Textes de la section Hero
     hero: {
       title: "Nathan Colson",
       description: "Passionate web developer transforming ideas into fluid and powerful digital experiences.",
-      projectsButton: "See My Projects",
+      activitiesButton: "See My Activities",
       studyRN: "Student at EPHEC",
       location: "Belgium",
       role: "IT",
@@ -22,43 +25,43 @@ export const translations = {
       seeMoreButton: "See more",
       project1: {
         title: "Dbox-FM",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "A group project to create a Soundcloud-like web platform for music sharing, linked to a live radio station broadcasting via a Raspberry Pi.",
       },
       project2: {
         title: "TFE",
-        description: "Une courte description du Projet Beta. Celui-ci était un effort de groupe.",
+        description: "My final year thesis project for my bachelor's degree on [Your Thesis Topic]. This project is currently in development.",
       },
       project3: {
-        title: "Agent IA",
-        description: "Une courte description du Projet Gamma, centrée sur l'API backend.",
+        title: "AI Agent",
+        description: "Development of an AI conversational agent for a restaurant in the PSV stadium, created with an international team during the project week in Eindhoven.",
       },
       project4: {
         title: "The Beauty Corner",
-        description: "Une courte description du Projet Delta. Design entièrement responsive.",
+        description: "A client project for a beauty salon. Created a modern showcase website with a React frontend to ensure a smooth user experience.",
       },
       project5: {
         title: "LARES",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "A group project (in progress) focused on developing a fleet of smart locks, including advanced user permission management and remote modules.",
       },
       project6: {
-        title: "Gestionnaire de fichiers CSV",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        title: "CSV File Manager",
+        description: "Development of an interactive Python script to create, modify, and delete data within one or more CSV files.",
       },
       project7: {
-        title: "Admin VPS",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        title: "VPS Admin",
+        description: "Configured and secured a VPS. Deployed web, database, and mail services using Docker and Docker Swarm to create a server network.",
       },
       project8: {
         title: "Portfolio",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "The site you are currently browsing. A showcase of my skills and projects, built with Next.js, shadcn/ui, and Framer Motion.",
       },
       project9: {
         title: "F1-Project",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "A Formula 1 season simulation built in C. A group project that included a graphical interface and network communication between machines.",
       },
       project10: {
         title: "Noctren",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Creation of a professional website for a TikTok fitness influencer and coach, serving as a platform for their coaching services.",
       },
     },
     // --- NOUVEAUX TEXTES POUR LA SECTION JOURNEY ---
@@ -66,7 +69,6 @@ export const translations = {
       sectionTitle: "My Journey",
       educationTitle: "Education",
       experienceTitle: "Experience",
-      // Tes items de formation
       item1: {
         date: "2021 - Present",
         title: "IT Bachelor's Degree",
@@ -85,7 +87,6 @@ export const translations = {
         institution: "Secondary School Name",
         description: "Secondary education diploma (CESS) with a focus on [Your Focus, e.g., Sciences, Maths...].",
       },
-      // Ton item d'expérience
       item4: {
         date: "2022 - Present",
         title: "IT & Logic Professor",
@@ -116,7 +117,6 @@ export const translations = {
       successMessage: "Thank you! Your message has been sent.",
       errorMessage: "Oops! Something went wrong. Please try again.",
     },
-    // ... tes autres sections
   },
   fr: {
     // Textes du Header
@@ -124,13 +124,16 @@ export const translations = {
       navProjects: "Projets",
       navSkills: "Compétences",
       navContact: "Contact",
+      // AJOUT DES CLÉS MANQUANTES
+      navActivities: "Activités",
+      mobileNavDescription: "Navigation principale du site",
       cvButton: "Mon CV",
     },
     // Textes de la section Hero
     hero: {
-      title: "Nathan Colson", // Ton nom ne change pas :)
+      title: "Nathan Colson",
       description: "Développeur web passionné, transformant les idées en expériences numériques fluides et performantes.",
-      projectsButton: "Voir mes projets",
+      activitiesButton: "Voir mes activités",
       studyRN: "Etudiant à l'EPHEC",
       location: "Belgique",
       role: "Technologies de l'informatique",
@@ -141,43 +144,43 @@ export const translations = {
       seeMoreButton: "Voir plus",
       project1: {
         title: "Dbox-FM",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Projet de groupe visant à créer une plateforme web (type Soundcloud) pour le partage de sons, couplée à une station radio émettant via un Raspberry Pi.",
       },
       project2: {
         title: "TFE",
-        description: "Une courte description du Projet Beta. Celui-ci était un effort de groupe.",
+        description: "Mon Travail de Fin d'Études (projet de fin de bachelier) sur [Sujet de ton TFE]. Ce projet est actuellement en cours de développement.",
       },
       project3: {
         title: "Agent IA",
-        description: "Une courte description du Projet Gamma, centrée sur l'API backend.",
+        description: "Création d'un agent conversationnel IA pour un restaurant au stade du PSV, réalisé en équipe internationale lors de la semaine de projet à Eindhoven.",
       },
       project4: {
         title: "The Beauty Corner",
-        description: "Une courte description du Projet Delta. Design entièrement responsive.",
+        description: "Projet client pour un salon d'esthétique. Création d'un site web vitrine moderne avec un frontend développé en React pour une expérience utilisateur fluide.",
       },
       project5: {
         title: "LARES",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Projet de groupe (en cours) visant à développer une flotte de serrures connectées, incluant une gestion avancée des permissions utilisateurs et des modules à distance.",
       },
       project6: {
         title: "Gestionnaire de fichiers CSV",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Développement d'un script interactif en Python permettant la création, la modification et la suppression de données dans un ou plusieurs fichiers CSV.",
       },
       project7: {
         title: "Admin VPS",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Configuration et sécurisation d'un VPS. Mise en place de services (web, BDD, mail) via Docker et Docker Swarm pour créer un réseau de serveurs.",
       },
       project8: {
         title: "Portfolio",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Le site sur lequel vous naviguez. Une vitrine de mes compétences et projets, développée avec Next.js, shadcn/ui et Framer Motion.",
       },
       project9: {
         title: "F1-Project",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Simulation en langage C d'une saison de F1. Projet de groupe incluant une interface graphique et une communication réseau entre machines.",
       },
       project10: {
         title: "Noctren",
-        description: "Une courte description du Projet Alpha, ce qu'il fait et les technologies utilisées.",
+        description: "Création d'un site web professionnel pour un coach sportif et influenceur TikTok, servant de plateforme pour ses services de coaching.",
       },
     },
     // --- NOUVEAUX TEXTES POUR LA SECTION JOURNEY ---
@@ -185,7 +188,6 @@ export const translations = {
       sectionTitle: "Mon Parcours",
       educationTitle: "Formation",
       experienceTitle: "Expérience",
-      // Tes items de formation
       item1: {
         date: "2021 - Aujourd'hui",
         title: "Bachelier en Informatique",
@@ -204,7 +206,6 @@ export const translations = {
         institution: "Nom de l'école secondaire",
         description: "Diplôme de l'enseignement secondaire (CESS) avec une orientation [Votre orientation, ex: Sciences, Maths...].",
       },
-      // Ton item d'expérience
       item4: {
         date: "2022 - Aujourd'hui",
         title: "Professeur d'Informatique & Logique",
@@ -213,10 +214,10 @@ export const translations = {
       },
     },
     skills: {
-      sectionTitle: "My Skills",
+      sectionTitle: "Mes Compétences",
       categoryFrontend: "Frontend",
       categoryBackend: "Backend",
-      categoryTools: "Tools & Others",
+      categoryTools: "Outils & Autres",
     },
     contact: {
       sectionTitle: "Contactez-moi",
@@ -234,8 +235,6 @@ export const translations = {
       socialTitle: "Retrouvez-moi sur",
       successMessage: "Merci ! Votre message a bien été envoyé.",
       errorMessage: "Oups ! Une erreur est survenue. Veuillez réessayer.",
-
     },
-    // ... tes autres sections
   },
 };
