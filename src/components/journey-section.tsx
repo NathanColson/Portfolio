@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { GraduationCap, Briefcase } from "lucide-react"; // Icônes
+import type { LucideProps } from "lucide-react";
 
 export function JourneySection() {
   const { t } = useLanguage();
@@ -145,6 +146,6 @@ export function JourneySection() {
 }
 
 // Petit fix pour l'icône GraduationCap qui avait une faute de frappe dans le JSX
-function ProjectiveGraduationCap(props: any) {
+function ProjectiveGraduationCap(props: LucideProps) {
   return <GraduationCap {...props} />;
 }

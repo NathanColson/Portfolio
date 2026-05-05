@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronDown, Trophy, ExternalLink, BookOpen } from "lucide-react";
+import { Check, ChevronDown, Trophy, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -24,10 +24,14 @@ export default function PortfolioActivitiesPage() {
   const [expandedActivity, setExpandedActivity] = useState<string | null>(null);
 
   const toggleActivity = (id: string) => {
-    const newSelected = new Set(selectedIds);
-    newSelected.has(id) ? newSelected.delete(id) : newSelected.add(id);
-    setSelectedIds(newSelected);
-  };
+  const newSelected = new Set(selectedIds);
+  if (newSelected.has(id)) {
+    newSelected.delete(id);
+  } else {
+    newSelected.add(id);
+  }
+  setSelectedIds(newSelected);
+};
 
   // Calculs basés sur le contenu traduit
   const stats = useMemo(() => {

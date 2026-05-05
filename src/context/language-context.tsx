@@ -25,7 +25,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const t = (key: string) => {
     // Sépare la clé (ex: "hero.title") en parties
     const keys = key.split('.');
-    let result: any = translations[locale]; // Commence au bon niveau du dictionnaire (en ou fr)
+    let result: any = translations[locale];
 
     // Navigue dans l'objet (translations.en.hero.title)
     for (const k of keys) {
