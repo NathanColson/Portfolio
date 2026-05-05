@@ -22,21 +22,26 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("en"); // Langue par défaut : anglais
 
   // La fonction magique de traduction
+// src/context/language-context.tsx
+
 const t = (key: string) => {
-    const keys = key.split('.');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let result: any = translations[locale]; 
+  const keys = key.split('.');
+  // On utilise unknown au lieu de any pour satisfaire le linter
+  let result: unknown = translations[locale]; 
 
-    for (const k of keys) {
-      result = result?.[k];
-      if (!result) {
-        console.warn(`No translation found for key: ${key} in locale: ${locale}`);
-        return key;
-      }
+  for (const k of keys) {
+    // On vérifie si result est un objet et contient la clé k
+    if (result && typeof result === 'object' && k in (result as Record<string, unknown>)) {
+      result = (result as Record<string, unknown>)[k];
+    } else {
+      console.warn(`No translation found for key: ${key} in locale: ${locale}`);
+      return key;
     }
-    return result as string;
-  };
-
+  }
+  
+  // On s'assure que le résultat final est bien une chaîne de caractères
+  return typeof result === 'string' ? result : key;
+};
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t }}>
       {children}
