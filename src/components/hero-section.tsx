@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/language-context";
 import { Button } from "@/components/ui/button";
 import { MapPin, Briefcase, GraduationCap, Mail } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import Link from "next/link";
+import Link from "next/link"; // Importation pour la navigation interne[cite: 4]
 
 const scrollTo = (id: string) => {
   const element = document.getElementById(id);
@@ -30,27 +30,20 @@ const infoSnippets = [
 
 // --- COMPOSANT INTERACTIF 3D ---
 function InteractiveLogo() {
-  // Valeurs pour suivre la souris
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Springs pour fluidifier le mouvement
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 });
 
-  // Transformation des coordonnées de la souris en angles de rotation (max 15 degrés)
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
-  // Transformation pour l'effet de brillance (déplace le dégradé)
   const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["100%", "0%"]);
   const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["100%", "0%"]);
 
-  // Gestion du survol
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    
-    // Calcule la position relative de la souris (de -0.5 à 0.5)
     const width = rect.width;
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
@@ -64,7 +57,6 @@ function InteractiveLogo() {
   };
 
   const handleMouseLeave = () => {
-    // Remet la carte à plat doucement
     x.set(0);
     y.set(0);
   };
@@ -83,31 +75,26 @@ function InteractiveLogo() {
           transformStyle: "preserve-3d",
         }}
       >
-        {/* --- EFFET DE BRILLANCE DYNAMIQUE --- */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-20 opacity-40 mix-blend-overlay"
           style={{
             background: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 60%)",
             left: glareX,
             top: glareY,
-            transform: "translate(-50%, -50%) scale(2)", // Agrandit le dégradé pour couvrir la carte
+            transform: "translate(-50%, -50%) scale(2)",
           }}
         />
 
-        {/* --- CONTENU DE LA CARTE --- */}
-        {/* On décale le contenu sur l'axe Z pour un effet de profondeur */}
         <div 
           className="relative z-10 flex flex-col items-center justify-center gap-4"
           style={{ transform: "translateZ(50px)" }} 
         >
-          {/* Logo / Initiale */}
           <div className="w-24 h-24 rounded-full border border-white/20 bg-black/40 flex items-center justify-center shadow-inner">
             <span className="text-3xl font-light text-zinc-200 tracking-widest">
               NC
             </span>
           </div>
           
-          {/* Texte stylisé */}
           <div className="flex flex-col items-center">
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-medium">
               Developer
@@ -116,13 +103,11 @@ function InteractiveLogo() {
           </div>
         </div>
 
-        {/* --- EFFET DE GRILLE EN ARRIÈRE-PLAN --- */}
         <div className="absolute inset-0 z-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
       </motion.div>
     </div>
   );
 }
-// ------------------------------
 
 export function HeroSection() {
   const { t } = useLanguage(); 
@@ -130,7 +115,6 @@ export function HeroSection() {
   return (
     <div className="w-full max-w-6xl min-h-[80vh] flex flex-col lg:flex-row lg:justify-start items-center text-left py-16 md:py-0 gap-12 lg:gap-32">
       
-      {/* === COLONNE 1: LE TEXTE === */}
       <div className="flex flex-col justify-center w-full lg:w-[60%] z-10">
         <motion.h1 
           className="text-5xl md:text-7xl font-bold tracking-tighter mb-4"
@@ -156,23 +140,26 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
         >
-          <Link href="/activites">
+          {/* Bouton vers la page Activités[cite: 4] */}
+          <Link href="/activites" className="w-full sm:w-auto">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 w-full sm:w-auto"
+              className="text-lg px-8 py-6 w-full"
             >
               {t("hero.activitiesButton")}
             </Button>
           </Link>
           
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="text-lg px-8 py-6"
-            onClick={() => window.open("/path-to-your-cv.pdf", "_blank")}
-          >
-            {t("header.cvButton")}
-          </Button>
+          {/* BOUTON MODIFIÉ : Redirection vers la page CV interne[cite: 4, 10] */}
+          <Link href="/cv" className="w-full sm:w-auto">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-6 w-full"
+            >
+              {t("header.cvButton")}
+            </Button>
+          </Link>
         </motion.div>
         
         <motion.div 
@@ -201,7 +188,6 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* === COLONNE 2: LE COMPOSANT INTERACTIF === */}
       <motion.div
         className="hidden lg:flex w-full lg:w-[40%] justify-center items-center"
         initial={{ opacity: 0, x: 50 }}

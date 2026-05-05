@@ -2,10 +2,7 @@ export const translations = {
   en: {
     // Textes du Header
     header: {
-      navProjects: "Projects",
-      navSkills: "Skills",
-      navContact: "Contact",
-      // AJOUT DES CLÉS MANQUANTES
+      navHub: "Hub",
       navActivities: "Activities",
       mobileNavDescription: "Main site navigation",
       cvButton: "My CV",
@@ -88,10 +85,22 @@ export const translations = {
         description: "Secondary education diploma (CESS) with a focus on [Your Focus, e.g., Sciences, Maths...].",
       },
       item4: {
-        date: "2022 - Present",
+        date: "2022 - 2026",
         title: "IT & Logic Professor",
         institution: "Local School for Kids",
         description: "Teaching programming logic, problem-solving, and basic web concepts to children aged 8-12.",
+      },
+      item5: {
+        date: "2026 (3 months)",
+        title: "Internal System Engineer (Internship)",
+        institution: "Easi",
+        description: "Three-month internship focused on managing and optimizing internal infrastructure and systems.",
+      },
+      item6: {
+        date: "2026 - Present",
+        title: "Junior Internal System Engineer",
+        institution: "Easi",
+        description: "Full-time position managing internal systems, ensuring high availability and technical support for internal teams.",
       },
     },
     skills: {
@@ -121,10 +130,7 @@ export const translations = {
   fr: {
     // Textes du Header
     header: {
-      navProjects: "Projets",
-      navSkills: "Compétences",
-      navContact: "Contact",
-      // AJOUT DES CLÉS MANQUANTES
+      navHub: "Accueil",
       navActivities: "Activités",
       mobileNavDescription: "Navigation principale du site",
       cvButton: "Mon CV",
@@ -207,10 +213,22 @@ export const translations = {
         description: "Diplôme de l'enseignement secondaire (CESS) avec une orientation [Votre orientation, ex: Sciences, Maths...].",
       },
       item4: {
-        date: "2022 - Aujourd'hui",
+        date: "2022 - 2026",
         title: "Professeur d'Informatique & Logique",
         institution: "École locale pour enfants",
         description: "Enseignement de la logique de programmation, de la résolution de problèmes et des concepts web de base à des enfants de 8 à 12 ans.",
+      },
+      item5: {
+        date: "2026 (3 mois)",
+        title: "Internal System Engineer (Stage)",
+        institution: "Easi",
+        description: "Stage de trois mois concentré sur la gestion et l'optimisation des infrastructures et systèmes internes.",
+      },
+      item6: {
+        date: "2026 - Aujourd'hui",
+        title: "Junior Internal System Engineer",
+        institution: "Easi",
+        description: "Poste fixe au sein de l'équipe système, responsable de la maintenance et de l'évolution des outils internes de l'entreprise.",
       },
     },
     skills: {
@@ -237,4 +255,4 @@ export const translations = {
       errorMessage: "Oups ! Une erreur est survenue. Veuillez réessayer.",
     },
   },
-};
+}

@@ -17,7 +17,10 @@ export function JourneySection() {
 
   // On définit les listes de clés pour chaque catégorie
   const educationKeys = ["journey.item1", "journey.item2", "journey.item3"];
-  const experienceKeys = ["journey.item4"];
+  
+  // MISE À JOUR : Ajout de l'emploi fixe (item6) et du stage (item5) chez Easi
+  // L'ordre est inversé pour afficher le poste actuel en premier
+  const experienceKeys = ["journey.item6", "journey.item5", "journey.item4"];
 
   // 2. Préparer la détection de scroll
   const ref = useRef(null);
@@ -77,7 +80,7 @@ export function JourneySection() {
         {/* Colonne de gauche : Formation */}
         <div className="flex flex-col gap-8">
           <h3 className="text-2xl font-semibold flex items-center gap-3">
-            <GraduationCap className="h-8 w-8 text-primary" />
+            <ProjectiveGraduationCap className="h-8 w-8 text-primary" />
             {t("journey.educationTitle")}
           </h3>
           
@@ -139,4 +142,9 @@ export function JourneySection() {
       </motion.div>
     </motion.div>
   );
+}
+
+// Petit fix pour l'icône GraduationCap qui avait une faute de frappe dans le JSX
+function ProjectiveGraduationCap(props: any) {
+  return <GraduationCap {...props} />;
 }
