@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { LanguageProvider } from "@/context/language-context";
-// 1. Importer le nouveau ThemeProvider
 import { ThemeProvider } from "@/components/theme-provider"; 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,25 +12,16 @@ export const metadata: Metadata = {
   description: "Mon portfolio de développeur Next.js",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // 'suppressHydrationWarning' est important pour next-themes
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning> 
       <body className={inter.className}>
-        {/* 2. Enrouler TOUT avec le ThemeProvider */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {/* On enveloppe tout avec le LanguageProvider pour que la traduction marche partout */}
           <LanguageProvider>
+            {/* On place le Header ici pour qu'il soit visible sur toutes les pages */}
             <Header />
-            <main>{children}</main>
+            {children}
           </LanguageProvider>
         </ThemeProvider>
       </body>

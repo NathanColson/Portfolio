@@ -4,6 +4,7 @@ export const cvContent = {
   en: {
     title: "Curriculum Vitae",
     downloadBtn: "Download PDF",
+    cvFile: "/Colson-Nathan-CV-2025.pdf",
     contactTitle: "Contact Information",
     educationTitle: "Education",
     experienceTitle: "Professional Experience",
@@ -75,6 +76,7 @@ export const cvContent = {
   fr: {
     title: "Curriculum Vitae",
     downloadBtn: "Télécharger PDF",
+    cvFile: "/Nathan-Colson-CV-Fr.pdf",
     contactTitle: "Coordonnées",
     educationTitle: "Formation",
     experienceTitle: "Expérience Professionnelle",

@@ -25,8 +25,8 @@ export const translations = {
         description: "A group project to create a Soundcloud-like web platform for music sharing, linked to a live radio station broadcasting via a Raspberry Pi.",
       },
       project2: {
-        title: "TFE",
-        description: "My final year thesis project for my bachelor's degree on [Your Thesis Topic]. This project is currently in development.",
+        title: "Bachelor Thesis (TFE)",
+        description: "My final year thesis project carried out at Easi, focusing on the implementation of Passkeys to replace traditional passwords and significantly enhance infrastructure security.",
       },
       project3: {
         title: "AI Agent",
@@ -38,7 +38,7 @@ export const translations = {
       },
       project5: {
         title: "LARES",
-        description: "A group project (in progress) focused on developing a fleet of smart locks, including advanced user permission management and remote modules.",
+        description: "A group project focused on developing a fleet of smart locks, including advanced user permission management and remote modules.",
       },
       project6: {
         title: "CSV File Manager",
@@ -153,8 +153,8 @@ export const translations = {
         description: "Projet de groupe visant à créer une plateforme web (type Soundcloud) pour le partage de sons, couplée à une station radio émettant via un Raspberry Pi.",
       },
       project2: {
-        title: "TFE",
-        description: "Mon Travail de Fin d'Études (projet de fin de bachelier) sur [Sujet de ton TFE]. Ce projet est actuellement en cours de développement.",
+        title: "TFE (Travail de Fin d'Études)",
+        description: "Mon projet de fin d'études réalisé chez Easi, portant sur l'implémentation des Passkeys pour remplacer les mots de passe traditionnels et renforcer significativement la sécurité des infrastructures.",
       },
       project3: {
         title: "Agent IA",
