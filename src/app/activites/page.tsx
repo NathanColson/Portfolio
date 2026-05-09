@@ -64,8 +64,12 @@ export default function PortfolioActivitiesPage() {
     <div className="min-h-screen bg-background text-foreground pb-32">
       <main className="container max-w-5xl mx-auto px-4 md:px-6 pt-20 md:pt-24">
         <div className="mb-12 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">{content.pageTitle}</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl">{content.pageDescription}</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-foreground">
+            {content.pageTitle}
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-3xl">
+            {content.pageDescription}
+          </p>
         </div>
 
         <div className="space-y-12">
@@ -75,40 +79,72 @@ export default function PortfolioActivitiesPage() {
 
             return (
               <div key={theme.id} className="relative">
-                <div className="absolute left-6 top-14 bottom-0 w-px bg-border/50 hidden md:block" />
+                <div className="absolute left-6 top-14 bottom-0 w-px bg-border hidden md:block" />
+                
                 <div className="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  <div>
-                    <h2 className="text-2xl font-bold flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 z-10 relative">
-                        <BookOpen className="w-5 h-5 text-primary" />
+                  <div className="text-left">
+                    <h2 className="text-2xl font-bold flex items-center gap-3 text-foreground">
+                      <div className="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center shrink-0 z-10 relative shadow-sm">
+                        <BookOpen className={`w-5 h-5 transition-colors ${isThemeCapped ? 'text-violet-500' : 'text-primary'}`} />
                       </div>
                       {theme.title}
                     </h2>
                     <p className="text-muted-foreground mt-1 md:ml-16">{theme.description}</p>
                   </div>
-                  <div className={`shrink-0 px-4 py-2 rounded-lg border font-mono text-sm flex items-center gap-2 ${isThemeCapped ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-zinc-900 border-white/10'}`}>
+                  
+                  {/* Badge Mauve Joyeux */}
+                  <div className={`shrink-0 px-4 py-2 rounded-lg border font-mono text-sm flex items-center gap-2 transition-colors ${
+                    isThemeCapped 
+                      ? 'bg-violet-500/10 border-violet-500/20 text-violet-600 dark:text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.1)]' 
+                      : 'bg-card border-border text-foreground'
+                  }`}>
                     <span>{tStat?.rawHours}h réalisé(s)</span>
                     <span className="text-muted-foreground">→</span>
-                    <strong className={isThemeCapped ? 'text-orange-400' : 'text-primary'}>{tStat?.validHours}h validées</strong>
+                    <strong className={isThemeCapped ? 'text-violet-600 dark:text-violet-400' : 'text-primary'}>
+                      {tStat?.validHours}h validées
+                    </strong>
                   </div>
-                </div>
+                </div> {/* <--- LA BALISE AJOUTÉE ICI POUR FERMER LE HEADER DU THÈME */}
 
                 <div className="flex flex-col gap-4 md:ml-16">
                   {theme.activities.map((activity) => (
-                    <motion.div key={activity.id} layout className={`border rounded-xl transition-all overflow-hidden ${selectedIds.has(activity.id) ? 'bg-zinc-950/50 border-primary/30' : 'bg-zinc-950/20 border-white/5 opacity-60'}`}>
+                    <motion.div 
+                      key={activity.id} 
+                      layout 
+                      className={`border rounded-xl transition-all overflow-hidden ${
+                        selectedIds.has(activity.id) 
+                        ? 'bg-card border-primary/30 shadow-sm' 
+                        : 'bg-muted/30 border-border opacity-60'
+                      }`}
+                    >
                       <div className="flex items-stretch">
-                        <div className="flex items-center px-4 md:px-5 cursor-pointer hover:bg-white/5 transition-colors border-r border-white/5" onClick={(e) => { e.stopPropagation(); toggleActivity(activity.id); }}>
-                          <div className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${selectedIds.has(activity.id) ? 'bg-primary border-primary text-primary-foreground' : 'border-muted-foreground/50'}`}>
+                        <div 
+                          className="flex items-center px-4 md:px-5 cursor-pointer hover:bg-accent/50 transition-colors border-r border-border" 
+                          onClick={(e) => { e.stopPropagation(); toggleActivity(activity.id); }}
+                        >
+                          <div className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${
+                            selectedIds.has(activity.id) 
+                            ? 'bg-primary border-primary text-primary-foreground' 
+                            : 'border-input bg-background'
+                          }`}>
                             {selectedIds.has(activity.id) && <Check className="w-4 h-4" />}
                           </div>
                         </div>
-                        <div className="flex-grow p-4 md:p-5 flex items-center gap-4 cursor-pointer hover:bg-white/5 transition-colors" onClick={() => setExpandedActivity(expandedActivity === activity.id ? null : activity.id)}>
-                          <div className="flex-grow">
+
+                        <div 
+                          className="flex-grow p-4 md:p-5 flex items-center gap-4 cursor-pointer hover:bg-accent/50 transition-colors" 
+                          onClick={() => setExpandedActivity(expandedActivity === activity.id ? null : activity.id)}
+                        >
+                          <div className="flex-grow text-left">
                             <div className="flex flex-wrap items-center gap-2 mb-1">
-                              <Badge variant="secondary" className="text-[10px] uppercase font-bold">{activity.type}</Badge>
-                              <span className="text-xs font-mono text-muted-foreground">{activity.hours}h • {activity.date}</span>
+                              <Badge variant="secondary" className="text-[10px] uppercase font-bold">
+                                {activity.type}
+                              </Badge>
+                              <span className="text-xs font-mono text-muted-foreground">
+                                {activity.hours}h • {activity.date}
+                              </span>
                             </div>
-                            <h3 className="font-semibold text-lg">{activity.title}</h3>
+                            <h3 className="font-semibold text-lg text-foreground">{activity.title}</h3>
                           </div>
                           <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${expandedActivity === activity.id ? 'rotate-180' : ''}`} />
                         </div>
@@ -116,20 +152,32 @@ export default function PortfolioActivitiesPage() {
 
                       <AnimatePresence>
                         {expandedActivity === activity.id && (
-                          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="border-t border-white/5 bg-zinc-900/30">
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }} 
+                            animate={{ height: "auto", opacity: 1 }} 
+                            exit={{ height: 0, opacity: 0 }} 
+                            className="border-t border-border bg-muted/20"
+                          >
                             <div className="p-6 space-y-6 text-left">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                   <h4 className="text-xs font-bold uppercase tracking-wider text-primary">{content.frameworkTitle}</h4>
-                                  <p className="text-sm text-zinc-300 leading-relaxed">{activity.context}</p>
+                                  <p className="text-sm text-foreground/80 leading-relaxed">{activity.context}</p>
                                 </div>
                                 <div className="space-y-2">
                                   <h4 className="text-xs font-bold uppercase tracking-wider text-primary">{content.analysisTitle}</h4>
-                                  <p className="text-sm italic text-zinc-400 border-l-2 border-primary/20 pl-4 leading-relaxed">{activity.learnings}</p>
+                                  <p className="text-sm italic text-muted-foreground border-l-2 border-primary/20 pl-4 leading-relaxed">
+                                    {activity.learnings}
+                                  </p>
                                 </div>
                               </div>
-                              <div className="pt-4 border-t border-white/5 text-left">
-                                <Button variant="outline" size="sm" className="gap-2 border-primary/20 hover:bg-primary/10 transition-all" onClick={() => setProofModalActivity(activity)}>
+                              <div className="pt-4 border-t border-border text-left">
+                                <Button 
+                                  variant="outline" 
+                                  size="sm" 
+                                  className="gap-2 border-border hover:bg-accent transition-all" 
+                                  onClick={() => setProofModalActivity(activity)}
+                                >
                                   <ExternalLink className="h-4 w-4" />
                                   {content.proofLabel}
                                 </Button>
@@ -147,37 +195,43 @@ export default function PortfolioActivitiesPage() {
         </div>
       </main>
 
-      {/* POPUP DES PREUVES (FIXED STRUCTURE) */}
       <Dialog open={!!proofModalActivity} onOpenChange={() => setProofModalActivity(null)}>
-        <DialogContent className="max-w-3xl bg-zinc-950 border-white/10 text-white shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <DialogContent className="max-w-3xl bg-card border-border text-card-foreground shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
           <DialogHeader className="p-6 pb-2 text-left">
             <DialogTitle className="text-2xl font-bold">{proofModalActivity?.title}</DialogTitle>
-            <DialogDescription className="text-zinc-400">Pièces justificatives et documents officiels.</DialogDescription>
+            <DialogDescription className="text-muted-foreground">Pièces justificatives et documents officiels.</DialogDescription>
           </DialogHeader>
 
           <div className="flex-grow overflow-y-auto p-6 pt-2 space-y-8 custom-scrollbar">
             {proofModalActivity?.proofs?.map((proof: any, index: number) => (
-              <div key={index} className="flex flex-col gap-5 p-5 rounded-xl border border-white/5 bg-zinc-900/50">
+              <div key={index} className="flex flex-col gap-5 p-5 rounded-xl border border-border bg-muted/30 text-left">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2.5 text-primary shrink-0 border border-primary/20">{getProofIcon(proof.type)}</div>
+                    <div className="rounded-lg bg-primary/10 p-2.5 text-primary shrink-0 border border-primary/20">
+                      {getProofIcon(proof.type)}
+                    </div>
                     <div className="text-left">
                       <p className="font-bold text-sm tracking-tight">{proof.label}</p>
                       <div className="flex items-center gap-2 mt-1">
-                        <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20 text-[9px] h-4 px-1.5 py-0 uppercase tracking-tighter">Vérifié</Badge>
+                        <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20 text-[9px] h-4 px-1.5 py-0 uppercase tracking-tighter">
+                          Vérifié
+                        </Badge>
                         <span className="text-[10px] text-muted-foreground uppercase font-medium">
                           {proof.type === 'image' ? 'Fichier Image' : proof.type === 'github' ? 'Dépôt Code' : 'Document PDF'}
                         </span>
                       </div>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" className="h-9 gap-2 text-xs border-white/10 hover:bg-primary hover:text-primary-foreground transition-all" asChild>
-                    <a href={proof.url} target="_blank" rel="noopener noreferrer"><ExternalLink className="h-3.5 w-3.5" />Ouvrir</a>
+                  <Button variant="outline" size="sm" className="h-9 gap-2 text-xs border-border hover:bg-primary hover:text-primary-foreground transition-all" asChild>
+                    <a href={proof.url} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      Ouvrir
+                    </a>
                   </Button>
                 </div>
                 {proof.type === "image" && (
-                  <div className="relative mt-2 rounded-lg border border-white/10 bg-zinc-950 overflow-hidden shadow-inner flex justify-center">
-                    <img src={proof.url} alt={proof.label} className="w-full h-auto object-contain bg-zinc-900/50" style={{ maxHeight: "450px" }} />
+                  <div className="relative mt-2 rounded-lg border border-border bg-background overflow-hidden shadow-inner flex justify-center">
+                    <img src={proof.url} alt={proof.label} className="w-full h-auto object-contain" style={{ maxHeight: "450px" }} />
                   </div>
                 )}
                 <p className="text-[10px] text-center text-muted-foreground/60 italic">Document officiel servant de preuve de réalisation.</p>
@@ -187,23 +241,28 @@ export default function PortfolioActivitiesPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Barre d'XP dynamique */}
-      <div className="fixed bottom-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-t border-white/10 p-4 shadow-2xl">
+      <div className="fixed bottom-0 left-0 w-full z-50 bg-background/80 backdrop-blur-xl border-t border-border p-4 shadow-2xl">
         <div className="container max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-6">
           <div className="flex items-center gap-4">
-            <Trophy className={`w-10 h-10 ${stats.totalValidHours >= TARGET_HOURS ? 'text-emerald-400' : 'text-primary'}`} />
+            <Trophy className={`w-10 h-10 ${stats.totalValidHours >= TARGET_HOURS ? 'text-emerald-500' : 'text-primary'}`} />
             <div className="text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{content.targetHoursLabel}</p>
-              <p className="text-2xl font-bold font-mono">{stats.totalValidHours} / {TARGET_HOURS}h</p>
+              <p className="text-2xl font-bold font-mono text-foreground">{stats.totalValidHours} / {TARGET_HOURS}h</p>
             </div>
           </div>
-          <div className="flex-grow w-full">
-            <div className="h-3 w-full bg-zinc-800 rounded-full overflow-hidden">
-              <motion.div className={`h-full ${stats.totalValidHours >= TARGET_HOURS ? 'bg-emerald-500' : 'bg-primary'}`} animate={{ width: `${stats.progressPercentage}%` }} />
+          <div className="flex-grow w-full text-left">
+            <div className="h-3 w-full bg-muted rounded-full overflow-hidden">
+              <motion.div 
+                className={`h-full ${stats.totalValidHours >= TARGET_HOURS ? 'bg-emerald-500' : 'bg-primary'}`} 
+                animate={{ width: `${stats.progressPercentage}%` }} 
+              />
             </div>
             <div className="flex justify-between mt-2 text-xs font-bold">
               <span className="text-muted-foreground">{content.progressValidated}</span>
-              {stats.totalValidHours >= TARGET_HOURS ? <span className="text-emerald-400">{content.objectiveReached}</span> : <span className="text-primary">{TARGET_HOURS - stats.totalValidHours} {content.remainingLabel}</span>}
+              {stats.totalValidHours >= TARGET_HOURS 
+                ? <span className="text-emerald-500">{content.objectiveReached}</span> 
+                : <span className="text-primary">{TARGET_HOURS - stats.totalValidHours} {content.remainingLabel}</span>
+              }
             </div>
           </div>
         </div>
