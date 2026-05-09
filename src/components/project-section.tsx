@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/carousel";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,

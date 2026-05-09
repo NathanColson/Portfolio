@@ -6,13 +6,6 @@ import { MapPin, Briefcase, GraduationCap, Mail } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link"; // Importation pour la navigation interne[cite: 4]
 
-const scrollTo = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
 const infoSnippets = [
   {
     icon: <GraduationCap size={16} />,

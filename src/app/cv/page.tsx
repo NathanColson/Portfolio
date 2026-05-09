@@ -3,7 +3,6 @@
 import { useLanguage } from "@/context/language-context";
 import { cvContent } from "@/lib/cv-content";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Download, Briefcase, GraduationCap, Code, Globe } from "lucide-react";
 import Link from "next/link";
 
