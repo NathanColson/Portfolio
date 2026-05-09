@@ -48,8 +48,7 @@ export function ContactSection() {
     opacity: 1, 
     y: 0,
     transition: { 
-      duration: 0.5, 
-      ease: "easeOut" // TypeScript l'acceptera maintenant grâce au type Variants
+      duration: 0.5
     }
   },
 };
