@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Nathan Colson - Portfolio 2026
 
-## Getting Started
+Bienvenue sur le dépôt de mon portfolio professionnel et académique. Ce projet centralise mon parcours, mes compétences en tant que **Junior Internal System Engineer** et mes réalisations en développement Full-Stack.
 
-First, run the development server:
+## 🛠️ Stack Technique
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Technologie | Utilisation |
+| :--- | :--- |
+| **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) (OKLCH colors) |
+| **Langage** | [TypeScript](https://www.typescriptlang.org/) |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
+| **Composants** | [Shadcn UI](https://ui.shadcn.com/) & Radix UI |
+| **Icônes** | [Lucide React](https://lucide.dev/) |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Fonctionnalités Clés
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **🌍 Système Multilingue** : Support complet Français / Anglais via un Context Provider personnalisé.
+* **🎓 Hub Académique (Portfolio de Compétences)** :
+    * Suivi dynamique des heures de formation.
+    * Barre de progression "XP" interactive.
+    * Gestion des plafonds d'heures par thématique.
+    * **Système de Preuves** : Fenêtres modales affichant certificats (PDF), photos et liens GitHub.
+* **📄 CV Interactif** :
+    * Design adaptatif Dark/Light mode.
+    * Génération/Téléchargement de PDF dynamique selon la langue sélectionnée.
+* **🎨 Projets Freelance** : Vitrine de réalisations réelles (Kristel-art, Cielpied, The Beauty Corner).
+* **🌓 Mode Sombre/Clair** : Support natif du thème système avec `next-themes` et variables OKLCH.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Structure du Projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+├── src/
+│   ├── app/                # Routage Next.js (CV, Activités, Hub)
+│   ├── components/         # Composants UI réutilisables
+│   ├── context/            # Gestion de la langue et du thème
+│   ├── lib/                # Fichiers de données (activities-content, cv-content, etc.)
+│   └── styles/             # Global CSS avec Tailwind v4
+└── public/
+    └── proofs/             # Certificats, images et preuves de réalisation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 🌐 Déploiement
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le projet est déployé et synchronisé automatiquement avec Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

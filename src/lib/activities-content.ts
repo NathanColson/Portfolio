@@ -21,7 +21,7 @@ export const activitiesContent = {
         activities: [
           {
             id: "a1", title: "CTF Ephec", type: "Hackathon", hours: 1, date: "13/05/2025", 
-            proofs: [{ type: "image", label: "Scoreboard Screenshot", url: "/proofs/CTF_EPHEC.pdf" }],
+            proofs: [{ type: "link", label: "Attestation PDF", url: "/proofs/CTF_EPHEC.pdf" }],
             context: "Security competition organized within the school involving web and network challenges.",
             learnings: "Discovery of real-world vulnerabilities and introduction to ethical hacking tools."
           },
@@ -41,18 +41,38 @@ export const activitiesContent = {
       },
       {
         id: "t2",
+        title: "Tutoring & Academic Support",
+        description: "Academic assistance and peer-to-peer coaching within the EPHEC community.",
+        activities: [
+          {
+            id: "a15", 
+            title: "EPHEC Tutoring", 
+            type: "Coaching", 
+            hours: 40, 
+            date: "2024-2025", 
+            proofs: [
+              { type: "link", label: "Tutoring Certificate 2024", url: "/proofs/AttestationTutorat_2024.pdf" },
+              { type: "link", label: "Tutoring Certificate 2025", url: "/proofs/AttestationTutorat_2025.pdf" }
+            ],
+            context: "Providing academic support to first-year students struggling with core subjects such as Mathematics, Networking, and English.",
+            learnings: "Reinforcing technical fundamentals through teaching, developing patience, and adapting communication to different learning styles."
+          }
+        ]
+      },
+      {
+        id: "t3",
         title: "IT Student Jobs",
         description: "Professional experiences and technical coaching during my studies.",
         activities: [
           {
             id: "a4", title: "IT Educator @ Logiscool Wavre", type: "Job", hours: 200, date: "2023-2026", 
-            proofs: [{ type: "link", label: "Employment Document", url: "/proofs/COLSON.pdf" }],
+            proofs: [{ type: "image", label: "Employment Document", url: "/proofs/logiscool_etudiant.png" }],
             context: "Teaching programming (Python, Unity, Godot) to children and teenagers during the school year.",
             learnings: "Developing pedagogical skills and the ability to simplify complex technical concepts for a non-expert audience."
           },
           {
             id: "a5", title: "IT Stage Coach @ Promosport", type: "Job", hours: 200, date: "2023-2025", 
-            proofs: [{ type: "link", label: "Work Certificate", url: "/proofs/promosport-cert.pdf" }],
+            proofs: [{ type: "image", label: "Work Certificate", url: "/proofs/stage_etudiant.png" }],
             context: "Leading IT workshops and intensive stages focusing on robotics and game design in Louvain-la-Neuve.",
             learnings: "Management of young groups, event technical logistics, and project-based learning animation."
           },
@@ -65,7 +85,7 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t3",
+        id: "t4",
         title: "Freelance & Client Projects",
         description: "Development of production-ready web solutions for various clients.",
         activities: [
@@ -98,18 +118,18 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t4",
+        id: "t5",
         title: "Artificial Intelligence",
         description: "Monitoring and training on LLMs and conversational agents.",
         activities: [
           {
-            id: "a10", title: "Smiling Face (Hugging Face) Formation", type: "Formation", hours: 10, date: "2025", 
-            proofs: [{ type: "link", label: "Online Certificate", url: "/proofs/huggingface-cert.pdf" }],
+            id: "a10", title: "Hugging Face LLM Formation", type: "Formation", hours: 8, date: "2026", 
+            proofs: [{ type: "image", label: "Online Certificate", url: "/proofs/LLM-Formation.webp" }],
             context: "In-depth online training on Large Language Models (LLMs) and their industrial implementation.",
             learnings: "Understanding the underlying architecture of modern AIs and ethical usage of generative tools."
           },
           {
-            id: "a11", title: "UCLouvain AI Conference", type: "Conference", hours: 3, date: "2026", 
+            id: "a11", title: "UCLouvain AI Conference", type: "Conference", hours: 2.5, date: "2026", 
             proofs: [
               { type: "image", label: "Conference Hall", url: "/proofs/conferance.jpeg" },
               { type: "image", label: "Proof of attendance", url: "/proofs/me_conferance.jpeg" }
@@ -120,7 +140,38 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t5",
+        id: "t6",
+        title: "Professional Immersion & Conferences",
+        description: "Exploration of the IT ecosystem, corporate cultures, and specialized technical seminars.",
+        activities: [
+          {
+            id: "a16", 
+            title: "Odoo Corporate Visit", 
+            type: "Immersion", 
+            hours: 3, 
+            date: "Summer 2025", 
+            proofs: [
+              { type: "image", label: "Visit Photo / Invitation", url: "/proofs/visite_odoo.png" }
+            ],
+            context: "Private visit to Odoo's headquarters at 'Les Fermes de Ramillies'. Presentation of the ERP ecosystem and discovery of the infrastructure and unique corporate culture.",
+            learnings: "Discovery of a world-leading software company's growth model and modern workspace management."
+          },
+          {
+            id: "a17", 
+            title: "Microsoft Cloud & Azure Conference", 
+            type: "Conference", 
+            hours: 2, 
+            date: "03/11/2025", 
+            proofs: [
+              { type: "image", label: "Participation Certificate", url: "/proofs/microsoft_conf.png" }
+            ],
+            context: "Technical conference on 'Cloud with M365 and Azure Infrastructure' given by Kevin Keurvels (Axentys) at EPHEC.",
+            learnings: "Deepening knowledge of Azure hybrid infrastructure, M365 ecosystem management, and professional IT support services."
+          }
+        ]
+      },
+      {
+        id: "t7",
         title: "Sport & Esport",
         description: "Teamwork and personal discipline through competition and running.",
         activities: [
@@ -142,7 +193,7 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t6",
+        id: "t8",
         title: "Soft Skills",
         description: "Autonomy and manual skills.",
         activities: [
@@ -178,7 +229,7 @@ export const activitiesContent = {
         activities: [
           {
             id: "a1", title: "CTF Ephec", type: "Hackathon", hours: 1, date: "13/05/2025", 
-            proofs: [{ type: "image", label: "Capture d'écran Scoreboard", url: "/proofs/CTF_EPHEC.pdf" }],
+            proofs: [{ type: "link", label: "Attestation PDF", url: "/proofs/CTF_EPHEC.pdf" }],
             context: "Compétition de sécurité organisée au sein de l'école (web, réseau, crypto).",
             learnings: "Découverte de vulnérabilités réelles et initiation aux outils de hacking éthique."
           },
@@ -198,18 +249,38 @@ export const activitiesContent = {
       },
       {
         id: "t2",
+        title: "Tutorat & Soutien Académique",
+        description: "Accompagnement et coaching entre pairs au sein de la communauté EPHEC.",
+        activities: [
+          {
+            id: "a15", 
+            title: "Tutorat EPHEC", 
+            type: "Coaching", 
+            hours: 40, 
+            date: "2024-2025", 
+            proofs: [
+              { type: "link", label: "Tutoring Certificate 2024", url: "/proofs/AttestationTutorat_2024.pdf" },
+              { type: "link", label: "Tutoring Certificate 2025", url: "/proofs/AttestationTutorat_2025.pdf" }
+            ],
+            context: "Soutien scolaire aux étudiants de première année en difficulté dans des matières clés : Mathématiques, Réseaux et Anglais.",
+            learnings: "Consolidation des bases techniques par l'enseignement, patience, et adaptation de la communication pour favoriser la réussite d'autrui."
+          }
+        ]
+      },
+      {
+        id: "t3",
         title: "Jobs Étudiants IT",
         description: "Expériences professionnelles et coaching technique durant mes études.",
         activities: [
           {
             id: "a4", title: "Formateur IT @ Logiscool Wavre", type: "Job", hours: 200, date: "2023-2026", 
-            proofs: [{ type: "link", label: "Document d'embauche", url: "/proofs/COLSON.pdf" }],
+            proofs: [{ type: "image", label: "Heure réalisé", url: "/proofs/logiscool_etudiant.png" }],
             context: "Enseignement de la programmation (Python, Unity, Godot) aux enfants et adolescents.",
             learnings: "Développement des compétences pédagogiques et capacité à vulgariser des concepts techniques complexes."
           },
           {
             id: "a5", title: "Coach Stages IT @ Promosport", type: "Job", hours: 200, date: "2023-2025", 
-            proofs: [{ type: "link", label: "Attestation de travail", url: "/proofs/promosport-cert.pdf" }],
+            proofs: [{ type: "image", label: "Attestation de travail", url: "/proofs/stage_etudiant.png" }],
             context: "Animation d'ateliers et stages intensifs de robotique et game design à Louvain-la-Neuve.",
             learnings: "Gestion de groupes de jeunes, logistique technique d'événements et animation par projet."
           },
@@ -222,7 +293,7 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t3",
+        id: "t4",
         title: "Projets Freelance & Clients",
         description: "Développement de solutions web professionnelles pour divers clients.",
         activities: [
@@ -255,13 +326,13 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t4",
+        id: "t5",
         title: "Intelligence Artificielle",
         description: "Veille et formation sur les LLM et agents conversationnels.",
         activities: [
           {
             id: "a10", title: "Formation Smiling Face (Hugging Face)", type: "Formation", hours: 10, date: "2025", 
-            proofs: [{ type: "link", label: "Certificat en ligne", url: "/proofs/huggingface-cert.pdf" }],
+            proofs: [{ type: "image", label: "Certificat en ligne", url: "/proofs/LLM-Formation.webp" }],
             context: "Formation approfondie sur les Large Language Models (LLMs) et leur implémentation industrielle.",
             learnings: "Compréhension de l'architecture des IA modernes et usage éthique des outils génératifs."
           },
@@ -277,7 +348,38 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t5",
+        id: "t6",
+        title: "Immersion Pro & Conférences",
+        description: "Exploration de l'écosystème IT, des cultures d'entreprise et séminaires techniques spécialisés.",
+        activities: [
+          {
+            id: "a16", 
+            title: "Visite d'entreprise chez Odoo", 
+            type: "Immersion", 
+            hours: 3, 
+            date: "Été 2025", 
+            proofs: [
+              { type: "image", label: "Photo de visite / Invitation", url: "/proofs/viste_odoo.png" }
+            ],
+            context: "Visite privée des quartiers généraux d'Odoo (Les Fermes de Ramillies). Présentation de l'écosystème ERP et découverte de l'infrastructure et de la culture d'entreprise.",
+            learnings: "Découverte du modèle de croissance d'un leader mondial du logiciel et de la gestion d'espaces de travail modernes."
+          },
+          {
+            id: "a17", 
+            title: "Conférence Cloud Microsoft & Azure", 
+            type: "Conférence", 
+            hours: 2, 
+            date: "03/11/2025", 
+            proofs: [
+              { type: "image", label: "Preuve de participation", url: "/proofs/microsoft_conf.png" }
+            ],
+            context: "Conférence technique 'Cloud avec M365 et Azure Infrastructure' donnée par Kevin Keurvels (Axentys) à l'EPHEC.",
+            learnings: "Approfondissement des connaissances sur les infrastructures hybrides Azure, la gestion de l'écosystème M365 et les services de support informatique pro."
+          }
+        ]
+      },
+      {
+        id: "t7",
         title: "Sport & Esport",
         description: "Travail d'équipe et discipline personnelle via la compétition et la course.",
         activities: [
@@ -299,7 +401,7 @@ export const activitiesContent = {
         ]
       },
       {
-        id: "t6",
+        id: "t8",
         title: "Soft Skills",
         description: "Autonomie et compétences manuelles.",
         activities: [
