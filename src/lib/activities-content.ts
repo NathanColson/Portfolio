@@ -199,7 +199,11 @@ export const activitiesContent = {
         activities: [
           {
             id: "a14", title: "Studio Renovation", type: "Project", hours: 100, date: "Summer 2025", 
-            proofs: [{ type: "image", label: "Renovation Progress", url: "/proofs/renovation.jpg" }],
+            proofs: [
+              { type: "image", label: "Before Renovation", url: "/proofs/studio_avant" },
+              { type: "image", label: "In Progress", url: "/proofs/studio.png" },
+              { type: "image", label: "After Renovation", url: "/proofs/après_studio.png" }
+            ],
             context: "Complete refurbishment and modernization of a studio apartment.",
             learnings: "Project planning, budgeting, manual technical problem solving, and time management."
           }
@@ -407,7 +411,11 @@ export const activitiesContent = {
         activities: [
           {
             id: "a14", title: "Rénovation de Studio", type: "Projet", hours: 100, date: "Été 2025", 
-            proofs: [{ type: "image", label: "Suivi des travaux", url: "/proofs/renovation.jpg" }],
+            proofs: [
+              { type: "image", label: "Avant travaux", url: "/proofs/studio_avant" },
+              { type: "image", label: "Pendant les travaux", url: "/proofs/studio.png" },
+              { type: "image", label: "Après travaux", url: "/proofs/après_studio.png" }
+            ],
             context: "Rénovation complète et modernisation d'un studio (peinture, sol, électricité).",
             learnings: "Planification de projet, gestion de budget, résolution de problèmes techniques manuels et gestion du temps."
           }
